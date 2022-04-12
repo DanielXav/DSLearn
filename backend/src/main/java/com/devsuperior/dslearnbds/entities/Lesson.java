@@ -34,17 +34,17 @@ public abstract class Lesson {
 	@JoinColumn(name = "section_id")
 	private Section section;
 	
-	@ManyToMany()
-	@JoinTable(name = "tb_lessons_done", joinColumns = @JoinColumn(name = "lesson_id"), inverseJoinColumns = {
-			@JoinColumn(name = "user_id"), @JoinColumn(name = "offer_id")
-	})
-	private Set<Enrollment> enrollmentsDone = new HashSet<>();
-	
 	@OneToMany(mappedBy = "lesson")
 	private List<Deliver> deliveries = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "lesson")
 	private List<Topic> topics = new ArrayList<>();	
+	
+	@ManyToMany()
+	@JoinTable(name = "tb_lessons_done", joinColumns = @JoinColumn(name = "lesson_id"), inverseJoinColumns = {
+			@JoinColumn(name = "user_id"), @JoinColumn(name = "offer_id")
+	})
+	private Set<Enrollment> enrollmentsDone = new HashSet<>();
 	
 	public Lesson() {
 	}
