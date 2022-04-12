@@ -1,4 +1,4 @@
-package com.devsuperior.dscatalog.entities.enums;
+package com.devsuperior.dslearnbds.entities.enums;
 
 public enum DeliverStatus {
 
